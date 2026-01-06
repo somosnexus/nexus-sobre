@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre o Nexus OS</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(255, 215, 0, 0.1) 100%);
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+            position: relative;
+            background: linear-gradient(135deg, #d4af37 0%, #ffd700 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .header p {
+            font-size: 1.3em;
+            opacity: 0.95;
+            position: relative;
+            color: #d4af37;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .content {
+            padding: 60px 40px;
+        }
+        
+        .section {
+            margin-bottom: 50px;
+        }
+        
+        .section h2 {
+            color: #d4af37;
+            font-size: 2em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #d4af37;
+        }
+        
+        .section h3 {
+            color: #c9a432;
+            font-size: 1.4em;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+        
+        .section p {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+            color: #555;
+            text-align: justify;
+        }
+        
+        .section ul {
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+        
+        .section li {
+            font-size: 1.05em;
+            margin-bottom: 12px;
+            color: #555;
+        }
+        
+        .highlight-box {
+            background: #fffbf0;
+            border-left: 4px solid #d4af37;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 8px;
+        }
+        
+        .highlight-box strong {
+            color: #c9a432;
+            font-size: 1.2em;
+        }
+        
+        .highlight-box p {
+            margin-top: 10px;
+        }
+        
+        .value-card {
+            background: #fafaf8;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 12px;
+            border-left: 4px solid #d4af37;
+        }
+        
+        .value-card h4 {
+            color: #d4af37;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+        
+        .value-card p {
+            color: #666;
+            text-align: left;
+        }
+        
+        .cta-box {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            border-radius: 12px;
+            margin-top: 50px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(255, 215, 0, 0.1) 100%);
+        }
+        
+        .cta-box h3 {
+            color: #d4af37;
+            font-size: 2em;
+            margin-bottom: 15px;
+            position: relative;
+        }
+        
+        .cta-box p {
+            position: relative;
+            color: white;
+            font-size: 1.1em;
+            text-align: center;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #d4af37 0%, #ffd700 100%);
+            color: #1a1a1a;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-top: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+        
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+        }
+        
+        .info-box {
+            background: #fafaf8;
+            border-left: 4px solid #d4af37;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        
+        .info-box strong {
+            color: #c9a432;
+        }
+        
+        .last-update {
+            text-align: center;
+            color: #999;
+            font-size: 0.95em;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid #ddd;
+        }
+        
+        a {
+            color: #d4af37;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+            
+            .content {
+                padding: 30px 20px;
+            }
+            
+            .section h2 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>💼 Sobre o Nexus OS</h1>
+            <p>O CFO Digital que transforma dados em decisões inteligentes</p>
+        </div>
+        
+        <div class="content">
+            <div class="section">
+                <h2>🎯 Nossa Missão</h2>
+                <p>
+                    O <strong>Nexus OS</strong> nasceu para resolver um problema que afeta milhares de lojistas: <strong>gestão ineficiente de estoque</strong> que leva a vendas perdidas, capital parado e falta de visibilidade sobre o negócio.
+                </p>
+                <p>
+                    Nossa missão: <strong>democratizar a inteligência financeira</strong> para e-commerces de todos os tamanhos.
+                </p>
+                
+                <div class="highlight-box">
+                    <strong>💡 Nossa Visão:</strong>
+                    <p>
+                        Ser o sistema de decisão mais confiável para lojistas brasileiros, tornando a gestão de estoque inteligente, automática e acessível.
+                    </p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>🔍 O Problema</h2>
+                
+                <div class="value-card">
+                    <h4>📉 "Perco vendas porque produtos acabam"</h4>
+                    <p>
+                        Falta de visibilidade sobre quando o estoque vai zerar. Quando percebe, já é tarde.
+                    </p>
+                </div>
+                
+                <div class="value-card">
+                    <h4>💰 "Tenho dinheiro parado"</h4>
+                    <p>
+                        Capital travado em produtos que não vendem quando poderia estar investido em crescimento.
+                    </p>
+                </div>
+                
+                <div class="value-card">
+                    <h4>🤷 "Não sei quando repor"</h4>
+                    <p>
+                        Decisões baseadas em "feeling" ou Excel. Sem dados, as escolhas são arriscadas.
+                    </p>
+                </div>
+                
+                <div class="value-card">
+                    <h4>⏰ "Não tenho tempo"</h4>
+                    <p>
+                        Horas analisando planilhas quando poderia estar vendendo ou crescendo.
+                    </p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>✨ Nossa Solução</h2>
+                <p>
+                    O Nexus OS é um <strong>CFO Digital</strong> que se conecta ao Bling e automaticamente:
+                </p>
+                
+                <ul>
+                    <li>Calcula <strong>VVD</strong> (Velocidade de Venda) de cada produto</li>
+                    <li>Projeta <strong>quando vai acabar</strong> considerando fornecedor</li>
+                    <li>Identifica <strong>capital parado</strong> e quanto você perde mensalmente</li>
+                    <li>Detecta <strong>oportunidades</strong> de crescimento</li>
+                    <li>Gera <strong>recomendações específicas</strong> prontas para ação</li>
+                </ul>
+                
+                <div class="highlight-box">
+                    <strong>🎯 Diferencial:</strong>
+                    <p>
+                        Não somos "dashboard para ficar olhando". Somos um <strong>sistema de ação</strong> que alerta proativamente.
+                    </p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>💎 Nossos Valores</h2>
+                
+                <div class="value-card">
+                    <h4>🎯 Foco em Ação</h4>
+                    <p>Não basta dados. Você deve saber exatamente o que fazer.</p>
+                </div>
+                
+                <div class="value-card">
+                    <h4>🔒 Transparência</h4>
+                    <p>Explicamos cada cálculo, cada recomendação.</p>
+                </div>
+                
+                <div class="value-card">
+                    <h4>⚡ Simplicidade</h4>
+                    <p>Conectou o Bling? Está funcionando. Sem curva de aprendizado.</p>
+                </div>
+                
+                <div class="value-card">
+                    <h4>🚀 Evolução</h4>
+                    <p>Ouvimos usuários e melhoramos constantemente.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>🛡️ Por Que Confiar?</h2>
+                <ul>
+                    <li><strong>Integração Oficial:</strong> OAuth 2.0 e APIs oficiais do Bling</li>
+                    <li><strong>Somente Leitura:</strong> Nunca alteramos seus dados</li>
+                    <li><strong>LGPD Compliant:</strong> Seguimos toda legislação</li>
+                    <li><strong>Infraestrutura Segura:</strong> AWS com criptografia 24/7</li>
+                    <li><strong>Suporte Dedicado:</strong> Time brasileiro, resposta em 24h</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>🗺️ Próximos Passos</h2>
+                <p>No roadmap:</p>
+                <ul>
+                    <li>📧 Notificações automáticas por email</li>
+                    <li>📄 Relatórios PDF exportáveis</li>
+                    <li>📈 Análise de sazonalidade</li>
+                    <li>🤖 Sugestões de preço com IA</li>
+                    <li>🔗 Integração com outros ERPs</li>
+                    <li>📱 App mobile</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>💬 Fale Conosco</h2>
+                <div class="info-box">
+                    <strong>📧 Email:</strong> contato@nexusos.com.br<br>
+                    <strong>🌐 Site:</strong> <a href="https://nexusos.com.br">nexusos.com.br</a><br>
+                    <strong>⏰ Horário:</strong> Segunda a Sexta, 9h às 18h
+                </div>
+            </div>
+
+            <div class="cta-box">
+                <h3>Transforme sua gestão de estoque</h3>
+                <p>Conecte seu Bling e tome decisões baseadas em dados.</p>
+                <a href="https://nexusos.com.br" class="cta-button">Começar Gratuitamente</a>
+                <p style="margin-top: 20px; font-size: 0.9em; opacity: 0.8;">
+                    Sem cartão • Sem compromisso • Cancele quando quiser
+                </p>
+            </div>
+
+            <div class="last-update">
+                <p>
+                    <strong>Nexus OS</strong> - CFO Digital<br>
+                    Janeiro de 2026
+                </p>
+                <p style="margin-top: 20px;">
+                    <a href="https://nexusos.com.br">Site</a> | 
+                    <a href="https://nexusos.com.br/termos">Termos</a> | 
+                    <a href="https://nexusos.com.br/privacidade">Privacidade</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
